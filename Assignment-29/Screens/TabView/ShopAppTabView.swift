@@ -21,8 +21,8 @@ struct ShopAppTabView: View {
             
             CategoriesView()
                 .tabItem {
-                    Image(systemName: "cart")
-                    Text("Cart")
+                    Image(systemName: "tag")
+                    Text("Categories")
                 }
         }
         .accentColor(.blue)

@@ -21,7 +21,7 @@ struct NavigationBarItemView: View {
             .overlay(
                 Circle()
                     .frame(width: 20, height: 20)
-                    .foregroundColor(.orange)
+                    .foregroundColor(.red.opacity (0.8))
                     .offset(x: 10, y: -10)
                     .overlay(
                         Text(text)
