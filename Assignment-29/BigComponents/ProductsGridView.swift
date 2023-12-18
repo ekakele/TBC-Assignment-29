@@ -12,12 +12,12 @@ struct ProductsGridView: View {
     @EnvironmentObject var viewModel: MainViewModel
     @State var path = NavigationPath()
     
-    
     var columns = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
     ]
     
+    // MARK: - Body
     var body: some View {
         verticalScrollView
     }
@@ -27,7 +27,6 @@ struct ProductsGridView: View {
             productsGrid
         }
     }
-    
     
     private var productsGrid: some View {
         LazyVGrid(columns: columns, spacing: 12) {

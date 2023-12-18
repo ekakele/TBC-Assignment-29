@@ -33,7 +33,7 @@ struct CustomCardView: View {
     }
     
     // MARK: - ImageView
-    private var LabelsStackView: some View {
+    var LabelsStackView: some View {
         ZStack {
             VStack() {
                 HStack {
@@ -58,31 +58,31 @@ struct CustomCardView: View {
     
     
     
-    private var itemImageView: some View {
+    var itemImageView: some View {
         Image(image)
             .resizable()
-        //            .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fill)
             .scaledToFill()
             .frame(width: 120, height: 120, alignment: .center)
             .clipShape(RoundedRectangle(cornerRadius: 12))
     }
     
     // MARK: - ShortDescription
-    private var shortDescriptionStackView: some View {
+     var shortDescriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView
             priceView
         }
     }
     
-    private var titleSubtitleView: some View {
+     var titleSubtitleView: some View {
         TitleSubtitleStackView(
             title: title,
             subTitle: brand
         )
     }
     
-    private var priceView: some View {
+     var priceView: some View {
         PriceView(price: price)
     }
 }
