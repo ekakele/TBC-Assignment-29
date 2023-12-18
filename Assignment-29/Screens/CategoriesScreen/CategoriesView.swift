@@ -34,6 +34,7 @@ struct CategoriesView: View {
         return List {
             ForEach(uniqueCategories, id: \.self) { category in
                 productCategoryLink(category: category)
+                    .frame(height: 50)
             }
         }
     }
@@ -43,14 +44,11 @@ struct CategoriesView: View {
             Text(category)
                 .font(.system(size: 20))
         })
-        //        .navigationDestination(for: Destination.self) {
-        //            ProductDetailView(viewModel: DestinationDetailViewModel(destination: $0, path: $path))
-        //        }
+        .navigationDestination(for: String.self) { category in
+            ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
+        }
     }
 }
-
-
-
 
 #Preview {
     CategoriesView().environmentObject(MainViewModel())
