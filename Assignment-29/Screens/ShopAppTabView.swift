@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ShopAppTabView: View {
+    @EnvironmentObject var viewModel: MainViewModel
+    
     var body: some View {
         TabView {
             
@@ -28,5 +30,5 @@ struct ShopAppTabView: View {
 }
 
 #Preview {
-    ShopAppTabView()
+    ShopAppTabView().environmentObject(MainViewModel())
 }

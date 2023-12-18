@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Products
-struct Products: Decodable, Hashable {
+struct ProductsData: Decodable, Hashable {
     let products: [Product]
     let total: Int
     let skip: Int
@@ -16,7 +16,7 @@ struct Products: Decodable, Hashable {
 }
 
 // MARK: - Product
-struct Product: Decodable, Hashable {
+struct Product: Decodable, Hashable, Identifiable {
     let id: Int
     let title: String
     let description: String

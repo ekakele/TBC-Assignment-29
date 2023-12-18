@@ -13,7 +13,7 @@ struct CustomCardView: View {
     var title: String
     var brand: String
     var price: Int
-    var discountPercentage: Double
+    var discount: Double
     var rating: Double
     
     // MARK: - Body
@@ -38,7 +38,7 @@ struct CustomCardView: View {
             VStack() {
                 HStack {
                     Spacer()
-                    DiscountLabelView(discountPercentage: discountPercentage)
+                    DiscountLabelView(discountPercentage: discount)
                 }
                 Spacer()
             }
@@ -88,5 +88,5 @@ struct CustomCardView: View {
 }
 
 #Preview {
-    CustomCardView(image: "testImage", title: "Watch", brand: "Apple", price: 200, discountPercentage: 20.2, rating: 4.9)
+    CustomCardView(image: "testImage", title: "Watch", brand: "Apple", price: 200, discount: 20.2, rating: 4.9)
 }
