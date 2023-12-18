@@ -15,12 +15,12 @@ struct MainView: View {
     // MARK: - Body
     var body: some View {
         navigationStack
-        checkoutButton
     }
     
     private var navigationStack: some View {
         NavigationStack(path: $path) {
             ProductsGridView()
+            checkoutButton
                 .navigationTitle("Online Store")
                 .navigationBarItems(
                     leading: BalanceBarItemView,
@@ -49,7 +49,7 @@ struct MainView: View {
             
         } label: {
             Text("Checkout")
-                .frame(width: 200, height: 60)
+                .frame(width: 140, height: 60)
                 .background(Color(red: 0.86, green: 0.19, blue: 0.13))
                 .foregroundColor(.white)
                 .bold()

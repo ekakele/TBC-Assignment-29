@@ -23,7 +23,7 @@ struct DiscountLabelView: View {
             .frame(width: 40, height: 20)
             .padding(.horizontal, 6)
             .padding(.vertical, 2)
-            .background(Color.red.opacity(0.6))
+            .background(Color.red.opacity(0.8))
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }

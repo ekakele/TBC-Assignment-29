@@ -56,37 +56,47 @@ struct CustomCardView: View {
         .padding(.trailing, 8)
     }
     
-    
-    
     var itemImageView: some View {
-        Image(image)
-            .resizable()
-                    .aspectRatio(contentMode: .fill)
-            .scaledToFill()
-            .frame(width: 120, height: 120, alignment: .center)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+        fetchImage()
+    }
+    
+    private func fetchImage() -> some View {
+        let imageURL = URL(string: image)
+        
+        return AsyncImage(
+            url: imageURL,
+            content: { fetchedImage in
+                fetchedImage
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 160, height: 120, alignment: .center)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                
+            }, placeholder: {
+                ProgressView()
+            })
     }
     
     // MARK: - ShortDescription
-     var shortDescriptionStackView: some View {
+    var shortDescriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView
             priceView
         }
     }
     
-     var titleSubtitleView: some View {
+    var titleSubtitleView: some View {
         TitleSubtitleStackView(
             title: title,
             subTitle: brand
         )
     }
     
-     var priceView: some View {
+    var priceView: some View {
         PriceView(price: price)
     }
 }
 
 #Preview {
-    CustomCardView(image: "testImage", title: "Watch", brand: "Apple", price: 200, discount: 20.2, rating: 4.9)
+    CustomCardView(image: "https://i.dummyjson.com/data/products/8/thumbnail.jpg", title: "Watch", brand: "Apple", price: 200, discount: 20.2, rating: 4.9)
 }
