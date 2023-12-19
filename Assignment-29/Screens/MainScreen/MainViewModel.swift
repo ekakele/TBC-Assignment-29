@@ -47,4 +47,23 @@ final class MainViewModel: ObservableObject {
             cartItems.append(newCartItem)
         }
     }
+    
+    func checkout(completion: @escaping () -> Void) {
+        // Calculate the total price of items in the cart
+           let totalPrice = self.totalPrice
+
+           // Check if the credit card balance is sufficient for the purchase
+           if creditCardBalance >= totalPrice {
+               // Subtract the total price from the credit card balance
+               creditCardBalance -= totalPrice
+
+               // Perform any other checkout-related actions if needed
+
+               // Clear the cart after a successful purchase
+               cartItems.removeAll()
+               print("Checkout successful! Remaining balance: \(creditCardBalance)")
+           } else {
+               print("Insufficient funds. Please add funds to your credit card.")
+           }
+    }
 }

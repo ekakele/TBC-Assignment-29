@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     // MARK: - Properties
     @EnvironmentObject var viewModel: MainViewModel
-    
     @State var path = NavigationPath()
     
     // MARK: - Body
@@ -64,7 +63,9 @@ struct MainView: View {
     
     private var checkoutButton: some View {
         Button {
-            
+            viewModel.checkout {
+                
+            }
         } label: {
             Text("Checkout")
                 .frame(width: 140, height: 60)
