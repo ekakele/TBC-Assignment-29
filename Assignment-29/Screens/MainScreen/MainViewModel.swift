@@ -8,9 +8,10 @@
 import Foundation
 import GenericNetworkManager
 
-enum CheckoutStatus: String {
-    case successfulPayment = "Your purchase has been successfully processed. Thank you for your purchase!"
-    case paymentDeclined = "Payment declined. Insufficient funds. Please ensure your account has enough balance and try again."
+enum checkoutStatus {
+    case success
+    case failure
+    case emptyCart
 }
 
 final class MainViewModel: ObservableObject {
@@ -19,10 +20,30 @@ final class MainViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var cartItems: [CartItem] = []
     @Published var creditCardBalance = 3500.0
-    
     @Published var showAlert = false
-    @Published var alertTitle: String = ""
-    @Published var alertMessage: String = ""
+    @Published var status: checkoutStatus = .emptyCart
+    
+    var alertTitle: String {
+        switch status {
+        case .success:
+            return "Payment Success"
+        case .failure:
+            return "Payment Declined"
+        case .emptyCart:
+            return "Empty Cart"
+        }
+    }
+    
+    var alertMessage: String {
+        switch status {
+        case .success:
+            return "Your purchase has been successfully processed. Thank you for your purchase!"
+        case .failure:
+            return "Payment declined. Insufficient funds. Please ensure your account has enough balance and try again."
+        case .emptyCart:
+            return "Your Cart is empty. Add items before checkout."
+        }
+    }
     
     var totalPrice: Double {
         cartItems.reduce(0) { $0 + (Double($1.product.price) * Double($1.quantity)) }
@@ -57,15 +78,17 @@ final class MainViewModel: ObservableObject {
         }
     }
     
-    func checkout(completion: @escaping (CheckoutStatus) -> Void) {
+    func checkout(completion: @escaping (checkoutStatus) -> Void) {
         let totalPrice = self.totalPrice
         
-        if creditCardBalance >= totalPrice {
+        if cartItems.isEmpty {
+            completion(.emptyCart)
+        } else if creditCardBalance >= totalPrice {
             creditCardBalance -= totalPrice
             cartItems.removeAll()
-            completion(.successfulPayment)
+            completion(.success)
         } else {
-            completion(.paymentDeclined)
+            completion(.failure)
         }
     }
 }

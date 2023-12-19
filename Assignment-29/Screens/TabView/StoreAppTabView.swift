@@ -21,7 +21,7 @@ struct StoreAppTabView: View {
             
             CategoriesView()
                 .tabItem {
-                    Image(systemName: "tag")
+                    Image(systemName: "square.grid.2x2")
                     Text("Categories")
                 }
         }

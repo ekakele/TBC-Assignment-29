@@ -11,6 +11,8 @@ struct MainView: View {
     // MARK: - Properties
     @EnvironmentObject var viewModel: MainViewModel
     @State var path = NavigationPath()
+    @State var paymentInProgress = false
+    
     
     // MARK: - Body
     var body: some View {
@@ -27,13 +29,8 @@ struct MainView: View {
                             leading: BalanceBarItemView,
                             trailing: CartBarItemView
                         )
-                    //                        .toolbar {
-                    //                            ToolbarItem(placement: .principal) {
-                    //                                Text("Online Store")
-                    //                                    .font(.title3)
-                    //                                    .bold()
-                    //                            }
-                    //                        }
+                        .navigationTitle("Online Store")
+                        .navigationBarTitleDisplayMode(.inline)
                 }
                 checkoutButton
             }
@@ -58,30 +55,55 @@ struct MainView: View {
     }
     
     private var BalanceBarItemView: some View {
-        NavigationBarItemView(systemImageName: "person")
+        NavigationBarItemView(systemImageName: "line.3.horizontal")
     }
     
     private var checkoutButton: some View {
         Button {
             viewModel.checkout { status in
-                switch status {
-                case .successfulPayment:
-                    viewModel.alertTitle = "Payment Success"
-                    viewModel.alertMessage = CheckoutStatus.successfulPayment.rawValue
-                case .paymentDeclined:
-                    viewModel.alertTitle = "Payment Declined"
-                    viewModel.alertMessage = CheckoutStatus.paymentDeclined.rawValue
+                viewModel.status = status
+                //                switch status {
+                //                case .successfulPayment:
+                //                    viewModel.alertTitle = "Payment Success"
+                //                    viewModel.alertMessage = CheckoutStatus.successfulPayment.rawValue
+                //                case .paymentDeclined:
+                //                    viewModel.alertTitle = "Payment Declined"
+                //                    viewModel.alertMessage = CheckoutStatus.paymentDeclined.rawValue
+                //                case .cartIsEmpty:
+                //                    viewModel.alertTitle = "Empty Cart"
+                //                    viewModel.alertMessage = CheckoutStatus.cartIsEmpty.rawValue
+                //                }
+                
+                paymentInProgress.toggle()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    viewModel.showAlert.toggle()
+                    paymentInProgress.toggle()
                 }
-                viewModel.showAlert.toggle()
             }
         } label: {
-            Text("Checkout")
-                .frame(width: 140, height: 60)
-                .background(Color(red: 0.86, green: 0.19, blue: 0.13))
-                .foregroundColor(.white)
-                .bold()
-                .cornerRadius(10)
-                .padding(.vertical, 5)
+            if paymentInProgress == true {
+                
+                Button {
+                } label: {
+                    ProgressView("Payment in progress")
+                        .tint(.white)
+                        .frame(width: 200, height: 60)
+                        .background(Color(red: 0.86, green: 0.19, blue: 0.13))
+                        .foregroundColor(.white)
+                        .bold()
+                        .cornerRadius(10)
+                        .padding(.vertical, 5)
+                }
+            } else {
+                Text("Checkout")
+                    .frame(width: 140, height: 60)
+                    .background(Color(red: 0.86, green: 0.19, blue: 0.13))
+                    .foregroundColor(.white)
+                    .bold()
+                    .cornerRadius(10)
+                    .padding(.vertical, 5)
+            }
         }
         .alert(isPresented: $viewModel.showAlert, content: {
             Alert(
@@ -89,9 +111,8 @@ struct MainView: View {
                 message: Text(viewModel.alertMessage)
             )
         })
+        .disabled(paymentInProgress)
     }
-
-    
 }
 
 #Preview {
