@@ -44,8 +44,10 @@ struct CategoriesView: View {
             Text(category)
                 .font(.system(size: 20))
         })
+        
         .navigationDestination(for: String.self) { category in
-            ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
+//            ProductsView(viewModel: ProductsViewModel(product: viewModel.products.first!, path: $path))
+            //ProductsGridView()
         }
     }
 }

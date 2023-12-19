@@ -1,5 +1,5 @@
 //
-//  ShopAppTabView.swift
+//  StoreAppTabView.swift
 //  Assignment-29
 //
 //  Created by Eka Kelenjeridze on 18.12.23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShopAppTabView: View {
+struct StoreAppTabView: View {
     @EnvironmentObject var viewModel: MainViewModel
     
     var body: some View {
@@ -30,5 +30,5 @@ struct ShopAppTabView: View {
 }
 
 #Preview {
-    ShopAppTabView().environmentObject(MainViewModel())
+    StoreAppTabView().environmentObject(MainViewModel())
 }

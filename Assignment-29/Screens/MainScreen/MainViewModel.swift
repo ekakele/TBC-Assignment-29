@@ -12,6 +12,8 @@ final class MainViewModel: ObservableObject {
     // MARK: - Properties
     private var networkManager: GenericNetworkManager
     @Published var products: [Product] = []
+    @Published var cartItems: [CartItem] = []
+    @Published var creditCardBalance = 3500
     
     // MARK: - Init
     init() {
@@ -19,7 +21,7 @@ final class MainViewModel: ObservableObject {
         fetchData()
     }
     
-    // MARK: - Network Call
+    //MARK: - Methods
     func fetchData() {
         networkManager.fetchData(endpoint: "products") { (result: Result<ProductsData, Error>) in
             switch result {
@@ -30,6 +32,15 @@ final class MainViewModel: ObservableObject {
             case .failure(let error):
                 print("Error fetching items: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func addToCart(product: Product) {
+        if let index = cartItems.firstIndex(where: { $0.product == product }) {
+            cartItems[index].quantity += 1
+        } else {
+            let newCartItem = CartItem(product: product, quantity: 1)
+            cartItems.append(newCartItem)
         }
     }
 }

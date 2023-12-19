@@ -44,7 +44,8 @@ struct ProductsGridView: View {
                 brand: product.brand,
                 price: product.price,
                 discount: product.discountPercentage,
-                rating: product.rating
+                rating: product.rating,
+                product: product
             )
         })
         //        .navigationDestination(for: Destination.self) {

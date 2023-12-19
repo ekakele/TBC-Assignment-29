@@ -15,13 +15,23 @@ struct CustomCardView: View {
     var price: Int
     var discount: Double
     var rating: Double
+    @EnvironmentObject var viewModel: MainViewModel
+    
+    var product: Product
     
     // MARK: - Body
     var body: some View {
         VStack {
             itemImageView
             Spacer()
-            shortDescriptionStackView
+            HStack(alignment: .top) {
+                shortDescriptionStackView
+                Spacer()
+                addToCartButton {
+                    viewModel.addToCart(product: product)
+                }
+            }
+            
         }
         .frame(width: 150, height: 200)
         .padding(.all, 12)
@@ -95,8 +105,22 @@ struct CustomCardView: View {
     var priceView: some View {
         PriceView(price: price)
     }
+    
+    private func addToCartButton(action: @escaping () -> Void) -> some View {
+        Button {
+            action()
+        } label: {
+            Text("🛒")
+                .frame(width: 44, height: 30, alignment: .center)
+                .background(.yellow.opacity(0.8))
+                .foregroundColor(.white)
+                .bold()
+                .cornerRadius(10)
+                .padding(.vertical, 5)
+        }
+    }
 }
 
 #Preview {
-    CustomCardView(image: "https://i.dummyjson.com/data/products/8/thumbnail.jpg", title: "Watch", brand: "Apple", price: 200, discount: 20.2, rating: 4.9)
+    CustomCardView(image: "https://i.dummyjson.com/data/products/8/thumbnail.jpg", title: "Watch", brand: "Apple", price: 200, discount: 20.2, rating: 4.9, product: ProductMockData.previewExample)
 }

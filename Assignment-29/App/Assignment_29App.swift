@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Assignment_29App: App {
+    @State var viewModel = MainViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ShopAppTabView()
+            StoreAppTabView()
+                .environmentObject(viewModel)
         }
     }
 }

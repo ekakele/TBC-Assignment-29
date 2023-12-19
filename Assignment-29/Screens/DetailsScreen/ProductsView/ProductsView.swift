@@ -10,7 +10,8 @@ import SwiftUI
 struct ProductsView: View {
     // MARK: - Properties
     @StateObject var viewModel: ProductsViewModel
-    @State var path = NavigationPath()
+    @EnvironmentObject var mainViewModel: MainViewModel
+//    @State var path = NavigationPath()
 
     
     // MARK: - Body
@@ -19,14 +20,16 @@ struct ProductsView: View {
     }
     
     private var navigationStack: some View {
-        NavigationStack(path: $path) {
+        NavigationStack() {
             ProductsGridView()
-                .navigationTitle("Product Category")
 //                .navigationTitle("\(product.category)")
+        }
+        .navigationDestination(for: Product.self) { product in
+            ProductDetailsView(viewModel: ProductDetailViewModel())
         }
     }
 }
 
-#Preview {
-    ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
-}
+//#Preview {
+//    ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
+//}

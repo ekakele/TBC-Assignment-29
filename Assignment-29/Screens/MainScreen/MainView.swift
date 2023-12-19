@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     // MARK: - Properties
     @EnvironmentObject var viewModel: MainViewModel
+    
     @State var path = NavigationPath()
     
     // MARK: - Body
@@ -19,16 +20,16 @@ struct MainView: View {
     
     private var navigationStack: some View {
         NavigationStack(path: $path) {
+            CreditCardView(price: "\(viewModel.creditCardBalance)$")
             ProductsGridView()
             checkoutButton
-                .navigationTitle("Online Store")
                 .navigationBarItems(
                     leading: BalanceBarItemView,
                     trailing: CartBarItemView
                 )
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text("3 items, 33$ total")
+                        Text("Online Store")
                             .font(.title3)
                             .bold()
                     }
@@ -37,11 +38,24 @@ struct MainView: View {
     }
     
     private var CartBarItemView: some View {
-        NavigationBarItemView(systemImageName: "cart", text: "3")
+        NavigationBarItemView(systemImageName: "cart")
+            .overlay(
+                Circle()
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(.orange)
+                    .offset(x: 10, y: -10)
+                    .overlay(
+                        Text("\(viewModel.cartItems.count)")
+                            .font(.system(size: 15))
+                            .bold()
+                            .foregroundColor(.white)
+                            .offset(x: 10, y: -10)
+                    )
+            )
     }
     
     private var BalanceBarItemView: some View {
-        NavigationBarItemView(systemImageName: "creditcard", text: "3")
+        NavigationBarItemView(systemImageName: "person")
     }
     
     private var checkoutButton: some View {
