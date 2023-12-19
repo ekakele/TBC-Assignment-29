@@ -63,8 +63,16 @@ struct MainView: View {
     
     private var checkoutButton: some View {
         Button {
-            viewModel.checkout {
-                
+            viewModel.checkout { status in
+                switch status {
+                case .successfulPayment:
+                    viewModel.alertTitle = "Payment Success"
+                    viewModel.alertMessage = CheckoutStatus.successfulPayment.rawValue
+                case .paymentDeclined:
+                    viewModel.alertTitle = "Payment Declined"
+                    viewModel.alertMessage = CheckoutStatus.paymentDeclined.rawValue
+                }
+                viewModel.showAlert.toggle()
             }
         } label: {
             Text("Checkout")
@@ -75,7 +83,14 @@ struct MainView: View {
                 .cornerRadius(10)
                 .padding(.vertical, 5)
         }
+        .alert(isPresented: $viewModel.showAlert, content: {
+            Alert(
+                title: Text(viewModel.alertTitle),
+                message: Text(viewModel.alertMessage)
+            )
+        })
     }
+
     
 }
 
