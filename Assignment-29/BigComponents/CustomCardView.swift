@@ -108,7 +108,7 @@ struct CustomCardView: View {
     
     private func addToCartButton(action: @escaping () -> Void) -> some View {
         Button {
-            action()
+            viewModel.addToCart(product: product)
         } label: {
             Text("🛒")
                 .frame(width: 44, height: 30, alignment: .center)

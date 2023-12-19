@@ -13,8 +13,12 @@ final class MainViewModel: ObservableObject {
     private var networkManager: GenericNetworkManager
     @Published var products: [Product] = []
     @Published var cartItems: [CartItem] = []
-    @Published var creditCardBalance = 3500
+    @Published var creditCardBalance = 3500.0
     
+    var totalPrice: Double {
+        cartItems.reduce(0) { $0 + (Double($1.product.price) * Double($1.quantity)) }
+       }
+
     // MARK: - Init
     init() {
         self.networkManager = GenericNetworkManager(baseURL: "https://dummyjson.com/")

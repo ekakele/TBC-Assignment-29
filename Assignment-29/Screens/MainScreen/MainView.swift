@@ -22,7 +22,7 @@ struct MainView: View {
         NavigationStack(path: $path) {
             ZStack(alignment: .bottom) {
                 VStack {
-                    CreditCardView(price: "\(viewModel.creditCardBalance)$")
+                    CreditCardView(balance:  "\(viewModel.creditCardBalance)$", totalPrice: "\(viewModel.totalPrice)$")
                     ProductsGridView()
                         .navigationBarItems(
                             leading: BalanceBarItemView,
@@ -75,6 +75,7 @@ struct MainView: View {
                 .padding(.vertical, 5)
         }
     }
+    
 }
 
 #Preview {

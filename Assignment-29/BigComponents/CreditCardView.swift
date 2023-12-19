@@ -8,17 +8,34 @@
 import SwiftUI
 
 struct CreditCardView: View {
-    var price: String
-
+    var balance: String
+    var totalPrice: String
+    
     var body: some View {
-        ImageBalanceView
+        
+        RoundedRectangleView
+            .padding()
+            .overlay {
+                VStack(alignment: .leading) {
+                    ImageBalanceView
+                    TextView
+                }
+            }
+    }
+    
+    var RoundedRectangleView: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .fill(Color(red: 0.99, green: 0.95, blue: 0.94))
+            .frame(width: .infinity, height: 200)
+            .padding(.horizontal, 20)
+            .shadow(radius: 10)
     }
     
     var ImageBalanceView: some View {
         ImageView
             .overlay(
                 alignment: .leading) {
-                    Text(price)
+                    Text(balance)
                         .bold()
                         .font(.title)
                         .foregroundColor(.white)
@@ -35,9 +52,18 @@ struct CreditCardView: View {
             .shadow(radius: 10)
     }
     
+    var TextView: some View {
+        Text("Total: \(totalPrice)")
+            .foregroundColor(Color(red: 0.86, green: 0.19, blue: 0.13))
+            .padding(.horizontal, 30)
+            .frame(width: .infinity, alignment: .leading)
+            .font(.title3)
+            .bold()
+    }
+    
     
 }
 
 #Preview {
-    CreditCardView(price: "3500$")
+    CreditCardView(balance: "3500$", totalPrice: "2000$")
 }
