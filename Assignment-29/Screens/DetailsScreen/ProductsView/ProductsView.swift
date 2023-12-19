@@ -30,6 +30,6 @@ struct ProductsView: View {
     }
 }
 
-//#Preview {
-//    ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
-//}
+#Preview {
+    ProductsView(viewModel: ProductsViewModel(product: ProductMockData.previewExample, path: ProductMockData().$path)).environmentObject(MainViewModel())
+}

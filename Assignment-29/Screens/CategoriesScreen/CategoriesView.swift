@@ -34,7 +34,7 @@ struct CategoriesView: View {
         return List {
             ForEach(uniqueCategories, id: \.self) { category in
                 productCategoryLink(category: category)
-                    .frame(height: 50)
+                    .frame(height: 40)
             }
         }
     }

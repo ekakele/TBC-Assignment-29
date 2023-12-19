@@ -20,20 +20,24 @@ struct MainView: View {
     
     private var navigationStack: some View {
         NavigationStack(path: $path) {
-            CreditCardView(price: "\(viewModel.creditCardBalance)$")
-            ProductsGridView()
-            checkoutButton
-                .navigationBarItems(
-                    leading: BalanceBarItemView,
-                    trailing: CartBarItemView
-                )
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Text("Online Store")
-                            .font(.title3)
-                            .bold()
-                    }
+            ZStack(alignment: .bottom) {
+                VStack {
+                    CreditCardView(price: "\(viewModel.creditCardBalance)$")
+                    ProductsGridView()
+                        .navigationBarItems(
+                            leading: BalanceBarItemView,
+                            trailing: CartBarItemView
+                        )
+                    //                        .toolbar {
+                    //                            ToolbarItem(placement: .principal) {
+                    //                                Text("Online Store")
+                    //                                    .font(.title3)
+                    //                                    .bold()
+                    //                            }
+                    //                        }
                 }
+                checkoutButton
+            }
         }
     }
     
