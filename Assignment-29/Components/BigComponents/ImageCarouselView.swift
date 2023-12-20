@@ -54,7 +54,7 @@ struct ImageCarouselView: View {
                 fetchedImage
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 400, height: 390)
+                    .frame(width: .infinity, height: 400)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
                     
                 

@@ -11,6 +11,7 @@ struct ProductDetailsView: View {
     // MARK: - Properties
     @EnvironmentObject var navigator: Navigator
     @EnvironmentObject var viewModel: ProductsViewModel
+    var product: Product
     
     var images: [String]
     var title: String
@@ -20,21 +21,16 @@ struct ProductDetailsView: View {
     var rating: Double
     var description: String
     
-    var product: Product
-    
     // MARK: - Body
     var body: some View {
         VStack {
             ImageCarouselView(images: images)
+            descriptionStackView
             Spacer()
-            HStack(alignment: .top) {
-                descriptionStackView
-                Spacer()
-            }
-            
+            returnToCategoriesButton
         }
         .padding(.horizontal, 20)
-        .padding(.bottom, 300)
+        .padding(.bottom, 100)
         .overlay {
             LabelsStackView
         }
@@ -65,11 +61,13 @@ struct ProductDetailsView: View {
     var descriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView
+                .padding(.vertical, 5)
             priceView
-            Spacer()
+                .padding(.vertical, 5)
             Text(description)
                 .font(.system(size: 18))
-                .lineLimit(6)
+                .lineLimit(8)
+                .padding(.vertical, 5)
         }
     }
     
@@ -83,8 +81,22 @@ struct ProductDetailsView: View {
     var priceView: some View {
         PriceView(price: price)
     }
+    
+    private var returnToCategoriesButton: some View {
+        Button {
+            navigator.navigateBack()
+        } label: {
+            Text("Return to Categories")
+                .frame(width: 200, height: 60)
+                .background(Color(red: 0.86, green: 0.19, blue: 0.13))
+                .foregroundColor(.white)
+                .bold()
+                .cornerRadius(10)
+                .padding(.vertical, 5)
+        }
+    }
 }
 
 #Preview {
-    ProductDetailsView(images: ProductMockData.previewExample.images, title: "Item", brand: "Apple", price: 200, discount: 18.8, rating: 4.4, description: "Item", product: ProductMockData.previewExample)
+    ProductDetailsView(product: ProductMockData.previewExample, images: ProductMockData.previewExample.images, title: "Item", brand: "Apple", price: 200, discount: 18.8, rating: 4.4, description: "Item")
 }
