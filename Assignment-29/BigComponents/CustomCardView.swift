@@ -16,6 +16,7 @@ struct CustomCardView: View {
     var discount: Double
     var rating: Double
     @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var navigator: Navigator
     
     var product: Product
     
@@ -65,6 +66,15 @@ struct CustomCardView: View {
         .padding(.vertical, 16)
         .padding(.trailing, 8)
     }
+    
+   
+//    var itemImageButtonView: some View {
+//        Button(action: {
+//            navigator.navigate(to: .productDetails(product: product))
+//        }, label: {
+//            itemImageView
+//        })
+//    }
     
     var itemImageView: some View {
         fetchImage()

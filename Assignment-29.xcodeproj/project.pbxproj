@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B59E581C2B32478C00BDACAF /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59E581B2B32478C00BDACAF /* Navigator.swift */; };
 		B5F9B5522B304C5C00E6EA2A /* Assignment_29App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9B5512B304C5C00E6EA2A /* Assignment_29App.swift */; };
 		B5F9B5542B304C5C00E6EA2A /* StoreAppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9B5532B304C5C00E6EA2A /* StoreAppTabView.swift */; };
 		B5F9B5562B304C5D00E6EA2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F9B5552B304C5D00E6EA2A /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B59E581B2B32478C00BDACAF /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		B5F9B54E2B304C5C00E6EA2A /* Assignment-29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment-29.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F9B5512B304C5C00E6EA2A /* Assignment_29App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment_29App.swift; sourceTree = "<group>"; };
 		B5F9B5532B304C5C00E6EA2A /* StoreAppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppTabView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F9B58D2B31031700E6EA2A /* ProductMockData.swift */,
+				B59E581B2B32478C00BDACAF /* Navigator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59E581C2B32478C00BDACAF /* Navigator.swift in Sources */,
 				B5F9B58C2B30FF2500E6EA2A /* ProductsViewModel.swift in Sources */,
 				B5F9B5762B309B6400E6EA2A /* DiscountLabelView.swift in Sources */,
 				B5F9B5542B304C5C00E6EA2A /* StoreAppTabView.swift in Sources */,

@@ -9,12 +9,26 @@ import SwiftUI
 
 @main
 struct Assignment_29App: App {
+    // MARK: - Properties
+    @ObservedObject var navigator = Navigator()
     @State var viewModel = MainViewModel()
-
+    
+    // MARK: - Body
     var body: some Scene {
         WindowGroup {
-            StoreAppTabView()
-                .environmentObject(viewModel)
+            
+            NavigationStack(path: $navigator.navigationPath) {
+                StoreAppTabView().navigationDestination(for: Navigator.Destination.self) { destination in
+                    switch destination {
+//                    case .productsView:
+//
+                    case .productDetails(let product):
+                        ProductDetailsView(product: product)
+                    }
+                }
+            }
+            .environmentObject(navigator)
+            .environmentObject(viewModel)
         }
     }
 }

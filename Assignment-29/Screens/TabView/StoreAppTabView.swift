@@ -30,5 +30,5 @@ struct StoreAppTabView: View {
 }
 
 #Preview {
-    StoreAppTabView().environmentObject(MainViewModel())
+        StoreAppTabView().environmentObject(MainViewModel())
 }

@@ -9,8 +9,11 @@ import SwiftUI
 
 struct MainView: View {
     // MARK: - Properties
+//    @State var path = NavigationPath()
+    @EnvironmentObject private var navigator: Navigator
+
+    
     @EnvironmentObject var viewModel: MainViewModel
-    @State var path = NavigationPath()
     @State var paymentInProgress = false
     
     
@@ -20,7 +23,7 @@ struct MainView: View {
     }
     
     private var navigationStack: some View {
-        NavigationStack(path: $path) {
+        //NavigationStack() {
             ZStack(alignment: .bottom) {
                 VStack {
                     CreditCardView(balance:  "\(viewModel.creditCardBalance)$", totalPrice: "\(viewModel.totalPrice)$")
@@ -34,7 +37,7 @@ struct MainView: View {
                 }
                 checkoutButton
             }
-        }
+        //}
     }
     
     private var CartBarItemView: some View {
@@ -62,18 +65,6 @@ struct MainView: View {
         Button {
             viewModel.checkout { status in
                 viewModel.status = status
-                //                switch status {
-                //                case .successfulPayment:
-                //                    viewModel.alertTitle = "Payment Success"
-                //                    viewModel.alertMessage = CheckoutStatus.successfulPayment.rawValue
-                //                case .paymentDeclined:
-                //                    viewModel.alertTitle = "Payment Declined"
-                //                    viewModel.alertMessage = CheckoutStatus.paymentDeclined.rawValue
-                //                case .cartIsEmpty:
-                //                    viewModel.alertTitle = "Empty Cart"
-                //                    viewModel.alertMessage = CheckoutStatus.cartIsEmpty.rawValue
-                //                }
-                
                 paymentInProgress.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
@@ -116,5 +107,9 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView().environmentObject(MainViewModel())
+    
+    NavigationStack {
+        MainView().environmentObject(MainViewModel())
+    }
+   
 }

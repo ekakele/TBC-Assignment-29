@@ -20,13 +20,13 @@ struct ProductsView: View {
     }
     
     private var navigationStack: some View {
-        NavigationStack() {
+        //NavigationStack() {
             ProductsGridView()
 //                .navigationTitle("\(product.category)")
-        }
-        .navigationDestination(for: Product.self) { product in
-            ProductDetailsView(viewModel: ProductDetailViewModel())
-        }
+        //}
+//        .navigationDestination(for: Product.self) { product in
+//            ProductDetailsView(product: product)
+//        }
     }
 }
 
