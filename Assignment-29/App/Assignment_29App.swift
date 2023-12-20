@@ -23,7 +23,7 @@ struct Assignment_29App: App {
                     case .productsView(let category):
                         ProductsView(category: category)
                     case .productDetails(let product):
-                        ProductDetailsView(product: product)
+                        ProductDetailsView(images: product.images, title: product.title, brand: product.brand, price: product.price, discount: product.discountPercentage, rating: product.rating, description: product.description, product: product)
                     }
                 }
             }

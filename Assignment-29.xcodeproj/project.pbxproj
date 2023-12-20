@@ -30,6 +30,7 @@
 		B5F9B58E2B31031700E6EA2A /* ProductMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9B58D2B31031700E6EA2A /* ProductMockData.swift */; };
 		B5F9B5932B3121DB00E6EA2A /* CreditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9B5922B3121DB00E6EA2A /* CreditCardView.swift */; };
 		B5F9B5952B3126EB00E6EA2A /* CartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F9B5942B3126EB00E6EA2A /* CartItemModel.swift */; };
+		B5FD989E2B333C5200133744 /* ImageCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FD989D2B333C5200133744 /* ImageCarouselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B5F9B58D2B31031700E6EA2A /* ProductMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMockData.swift; sourceTree = "<group>"; };
 		B5F9B5922B3121DB00E6EA2A /* CreditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardView.swift; sourceTree = "<group>"; };
 		B5F9B5942B3126EB00E6EA2A /* CartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemModel.swift; sourceTree = "<group>"; };
+		B5FD989D2B333C5200133744 /* ImageCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCarouselView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				B5F9B56F2B308B7800E6EA2A /* CustomCardView.swift */,
 				B5F9B5822B30E2CE00E6EA2A /* NavigationBarItemView.swift */,
 				B5F9B5922B3121DB00E6EA2A /* CreditCardView.swift */,
+				B5FD989D2B333C5200133744 /* ImageCarouselView.swift */,
 			);
 			path = BigComponents;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				B5F9B5952B3126EB00E6EA2A /* CartItemModel.swift in Sources */,
 				B5F9B5802B30B81700E6EA2A /* ProductDetailViewModel.swift in Sources */,
 				B5F9B5832B30E2CE00E6EA2A /* NavigationBarItemView.swift in Sources */,
+				B5FD989E2B333C5200133744 /* ImageCarouselView.swift in Sources */,
 				B5F9B5702B308B7800E6EA2A /* CustomCardView.swift in Sources */,
 				B5F9B5522B304C5C00E6EA2A /* Assignment_29App.swift in Sources */,
 				B5F9B5892B30FDE700E6EA2A /* ProductsView.swift in Sources */,
