@@ -19,7 +19,5 @@ struct MainView: View {
 }
 
 #Preview {
-    NavigationStack {
-        MainView().environmentObject(ProductsViewModel())
-    }
+    MainView().environmentObject(ProductsViewModel())
 }

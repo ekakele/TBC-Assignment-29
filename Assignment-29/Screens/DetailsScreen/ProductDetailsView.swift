@@ -84,9 +84,9 @@ struct ProductDetailsView: View {
     
     private var returnToCategoriesButton: some View {
         Button {
-            navigator.navigateBack()
+            navigator.navigateToRoot()
         } label: {
-            Text("Return to Categories")
+            Text("Return")
                 .frame(width: 200, height: 60)
                 .background(Color(red: 0.86, green: 0.19, blue: 0.13))
                 .foregroundColor(.white)
