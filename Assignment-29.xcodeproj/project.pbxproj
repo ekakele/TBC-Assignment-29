@@ -92,8 +92,7 @@
 				B5F9B55F2B304CD300E6EA2A /* App */,
 				B5F9B5612B304D0E00E6EA2A /* Models */,
 				B5F9B5602B304CF200E6EA2A /* Screens */,
-				B5F9B5812B30D91000E6EA2A /* BigComponents */,
-				B5F9B5622B304D2D00E6EA2A /* SmallComponents */,
+				B5FD989C2B331F5D00133744 /* Components */,
 				B5F9B5632B304D5300E6EA2A /* Resources */,
 				B5F9B5572B304C5D00E6EA2A /* Preview Content */,
 			);
@@ -217,6 +216,15 @@
 				B59E581B2B32478C00BDACAF /* Navigator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B5FD989C2B331F5D00133744 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5F9B5812B30D91000E6EA2A /* BigComponents */,
+				B5F9B5622B304D2D00E6EA2A /* SmallComponents */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
