@@ -8,6 +8,7 @@
 import Foundation
 import GenericNetworkManager
 
+// MARK: - Enum
 enum checkoutStatus {
     case success
     case failure

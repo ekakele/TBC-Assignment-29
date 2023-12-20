@@ -9,35 +9,30 @@ import SwiftUI
 
 struct MainView: View {
     // MARK: - Properties
-//    @State var path = NavigationPath()
     @EnvironmentObject private var navigator: Navigator
-
-    
     @EnvironmentObject var viewModel: MainViewModel
     @State var paymentInProgress = false
-    
     
     // MARK: - Body
     var body: some View {
         navigationStack
     }
     
+    // MARK: - Components
     private var navigationStack: some View {
-        //NavigationStack() {
-            ZStack(alignment: .bottom) {
-                VStack {
-                    CreditCardView(balance:  "\(viewModel.creditCardBalance)$", totalPrice: "\(viewModel.totalPrice)$")
-                    ProductsGridView()
-                        .navigationBarItems(
-                            leading: BalanceBarItemView,
-                            trailing: CartBarItemView
-                        )
-                        .navigationTitle("Online Store")
-                        .navigationBarTitleDisplayMode(.inline)
-                }
-                checkoutButton
+        ZStack(alignment: .bottom) {
+            VStack {
+                CreditCardView(balance:  "\(viewModel.creditCardBalance)$", totalPrice: "\(viewModel.totalPrice)$")
+                ProductsGridView()
+                    .navigationBarItems(
+                        leading: BalanceBarItemView,
+                        trailing: CartBarItemView
+                    )
+                    .navigationTitle("Online Store")
+                    .navigationBarTitleDisplayMode(.inline)
             }
-        //}
+            checkoutButton
+        }
     }
     
     private var CartBarItemView: some View {
@@ -111,5 +106,5 @@ struct MainView: View {
     NavigationStack {
         MainView().environmentObject(MainViewModel())
     }
-   
+    
 }

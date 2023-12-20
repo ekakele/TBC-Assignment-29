@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CreditCardView: View {
+    // MARK: - Properties
     var balance: String
     var totalPrice: String
     
+    // MARK: - Body
     var body: some View {
-        
         RoundedRectangleView
             .padding()
             .overlay {
@@ -23,6 +24,7 @@ struct CreditCardView: View {
             }
     }
     
+    // MARK: - Components
     var RoundedRectangleView: some View {
         RoundedRectangle(cornerRadius: 20)
             .fill(Color(red: 0.99, green: 0.95, blue: 0.94))
@@ -60,8 +62,6 @@ struct CreditCardView: View {
             .font(.title3)
             .bold()
     }
-    
-    
 }
 
 #Preview {

@@ -9,14 +9,15 @@ import SwiftUI
 
 struct CustomCardView: View {
     // MARK: - Properties
+    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var navigator: Navigator
+    
     var image: String
     var title: String
     var brand: String
     var price: Int
     var discount: Double
     var rating: Double
-    @EnvironmentObject var viewModel: MainViewModel
-    @EnvironmentObject var navigator: Navigator
     
     var product: Product
     
@@ -43,7 +44,7 @@ struct CustomCardView: View {
         }
     }
     
-    // MARK: - ImageView
+    // MARK: - Components
     var LabelsStackView: some View {
         ZStack {
             VStack() {
@@ -67,15 +68,6 @@ struct CustomCardView: View {
         .padding(.trailing, 8)
     }
     
-   
-//    var itemImageButtonView: some View {
-//        Button(action: {
-//            navigator.navigate(to: .productDetails(product: product))
-//        }, label: {
-//            itemImageView
-//        })
-//    }
-    
     var itemImageView: some View {
         fetchImage()
     }
@@ -97,7 +89,6 @@ struct CustomCardView: View {
             })
     }
     
-    // MARK: - ShortDescription
     var shortDescriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView

@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// MARK: - CartItem
 struct CartItem: Decodable, Hashable {
     var product: Product
     var quantity: Int = 0

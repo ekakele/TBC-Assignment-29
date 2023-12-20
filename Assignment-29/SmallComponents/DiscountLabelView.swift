@@ -14,9 +14,8 @@ struct DiscountLabelView: View {
         String(format: "%.1f", discountPercentage)
     }
     
-    
+    // MARK: - Body
     var body: some View {
-        // MARK: - Body
         Text(String("\(formattedDiscountPercentage)%"))
             .font(.system(size: 10, weight: .bold))
             .foregroundStyle(.white)

@@ -9,13 +9,16 @@ import SwiftUI
 
 final class Navigator: ObservableObject {
     
-    public enum Destination: Decodable, Hashable {
-//        case productsView
+    // MARK: - Enum
+    enum Destination: Decodable, Hashable {
+        //        case productsView
         case productDetails(product: Product)
     }
     
+    // MARK: - Properties
     @Published var navigationPath = NavigationPath()
     
+    // MARK: - Methods
     func navigate(to destination: Destination) {
         navigationPath.append(destination)
     }

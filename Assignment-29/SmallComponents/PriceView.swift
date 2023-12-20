@@ -16,7 +16,6 @@ struct PriceView: View {
     
     // MARK: - Body
     var body: some View {
-        // MARK: - Body
         Text("\(price)$")
             .font(.system(size: priceFont, weight: priceWeight))
             .frame(maxWidth: .infinity, alignment: alignmentAxe)

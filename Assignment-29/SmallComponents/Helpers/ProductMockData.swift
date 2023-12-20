@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProductMockData {
+    // MARK: - Properties
     @State var path = NavigationPath()
     
+    // MARK: - Properties
     static let previewExample = Product(
         id: 6,
         title: "MacBook Pro",

@@ -13,10 +13,9 @@ struct RatingLabelView: View {
     var formattedRating: String {
         String(format: "%.1f", rating)
     }
-
     
+    // MARK: - Body
     var body: some View {
-        // MARK: - Body
         Label(title: {
             Text(formattedRating)
                 .font(.system(size: 12, weight: .semibold))

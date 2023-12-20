@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct StoreAppTabView: View {
+    // MARK: - Properties
     @EnvironmentObject var viewModel: MainViewModel
     
+    // MARK: - Body
     var body: some View {
         TabView {
-            
             MainView()
                 .tabItem {
                     Image(systemName: "storefront")
@@ -30,5 +31,5 @@ struct StoreAppTabView: View {
 }
 
 #Preview {
-        StoreAppTabView().environmentObject(MainViewModel())
+    StoreAppTabView().environmentObject(MainViewModel())
 }
