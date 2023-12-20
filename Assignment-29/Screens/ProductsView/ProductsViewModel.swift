@@ -94,4 +94,8 @@ final class ProductsViewModel: ObservableObject {
             completion(.failure)
         }
     }
+    
+    func filterByCategory(category: String) -> [Product] {
+        return products.filter { $0.category.lowercased() == category.lowercased() }
+    }
 }

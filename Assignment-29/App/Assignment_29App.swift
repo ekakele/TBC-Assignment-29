@@ -20,8 +20,8 @@ struct Assignment_29App: App {
             NavigationStack(path: $navigator.navigationPath) {
                 StoreAppTabView().navigationDestination(for: Navigator.Destination.self) { destination in
                     switch destination {
-//                    case .productsView:
-//
+                    case .productsView(let category):
+                        ProductsView(category: category)
                     case .productDetails(let product):
                         ProductDetailsView(product: product)
                     }

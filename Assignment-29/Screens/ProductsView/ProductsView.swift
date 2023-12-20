@@ -12,15 +12,14 @@ struct ProductsView: View {
     @EnvironmentObject private var navigator: Navigator
     @EnvironmentObject var viewModel: ProductsViewModel
     @State var paymentInProgress = false    
-    //    @State var path = NavigationPath()
-    
-    
+    var category: String?
+
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack {
                 CreditCardView(balance:  "\(viewModel.creditCardBalance)$", totalPrice: "\(viewModel.totalPrice)$")
-                ProductsGridView()
+                ProductsGridView(products: filteredProducts)
                     .navigationBarItems(
                         leading: BalanceBarItemView,
                         trailing: CartBarItemView
@@ -49,6 +48,14 @@ struct ProductsView: View {
                     )
             )
     }
+    
+    var filteredProducts: [Product] {
+            if let category = category {
+                return viewModel.filterByCategory(category: category)
+            } else {
+                return viewModel.products
+            }
+        }
     
     private var BalanceBarItemView: some View {
         NavigationBarItemView(systemImageName: "line.3.horizontal")
@@ -100,6 +107,6 @@ struct ProductsView: View {
 }
 
 #Preview {
-    ProductsView().environmentObject(ProductsViewModel())
+    ProductsView(category: "laptops").environmentObject(ProductsViewModel())
 }
 

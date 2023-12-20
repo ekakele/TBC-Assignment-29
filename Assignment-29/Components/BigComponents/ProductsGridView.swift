@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ProductsGridView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: ProductsViewModel
+    //    @EnvironmentObject var viewModel: ProductsViewModel
     @EnvironmentObject var navigator: Navigator
-    
+    var products: [Product]
     var columns = [
         GridItem(.flexible(), spacing: 0),
         GridItem(.flexible(), spacing: 0)
@@ -31,28 +31,30 @@ struct ProductsGridView: View {
     
     private var productsGrid: some View {
         LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(viewModel.products) { product in
+            ForEach(products) { product in
                 productLink(product: product)
             }
         }
     }
     
     private func productLink(product: Product) -> some View {
-        CustomCardView(
-            image: product.thumbnail,
-            title: product.title,
-            brand: product.brand,
-            price: product.price,
-            discount: product.discountPercentage,
-            rating: product.rating,
-            product: product
-        )
-        .onTapGesture {
-            navigator.navigate(to: .productDetails(product: product))
+        NavigationLink(value: product) {
+            CustomCardView(
+                image: product.thumbnail,
+                title: product.title,
+                brand: product.brand,
+                price: product.price,
+                discount: product.discountPercentage,
+                rating: product.rating,
+                product: product
+            )
+            .onTapGesture {
+                navigator.navigate(to: .productDetails(product: product))
+            }
         }
     }
 }
 
 #Preview {
-    ProductsGridView().environmentObject(ProductsViewModel())
+    ProductsGridView(products: [ProductMockData.previewExample])
 }

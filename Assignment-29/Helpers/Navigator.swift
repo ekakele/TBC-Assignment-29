@@ -11,7 +11,7 @@ final class Navigator: ObservableObject {
     
     // MARK: - Enum
     enum Destination: Decodable, Hashable {
-        //        case productsView
+        case productsView(category: String)
         case productDetails(product: Product)
     }
     
