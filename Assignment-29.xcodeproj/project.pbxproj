@@ -93,6 +93,7 @@
 				B5F9B5612B304D0E00E6EA2A /* Models */,
 				B5F9B5602B304CF200E6EA2A /* Screens */,
 				B5FD989C2B331F5D00133744 /* Components */,
+				B5F9B58F2B31037500E6EA2A /* Helpers */,
 				B5F9B5632B304D5300E6EA2A /* Resources */,
 				B5F9B5572B304C5D00E6EA2A /* Preview Content */,
 			);
@@ -143,7 +144,6 @@
 				B5F9B5732B3091C600E6EA2A /* RatingLabelView.swift */,
 				B5F9B5752B309B6300E6EA2A /* DiscountLabelView.swift */,
 				B5F9B5772B30A83800E6EA2A /* PriceView.swift */,
-				B5F9B58F2B31037500E6EA2A /* Helpers */,
 			);
 			path = SmallComponents;
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 		B5F9B58F2B31037500E6EA2A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B5F9B58D2B31031700E6EA2A /* ProductMockData.swift */,
 				B59E581B2B32478C00BDACAF /* Navigator.swift */,
+				B5F9B58D2B31031700E6EA2A /* ProductMockData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
