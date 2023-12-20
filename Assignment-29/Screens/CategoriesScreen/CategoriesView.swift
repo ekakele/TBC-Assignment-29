@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoriesView: View {
     // MARK: - Properties
     @EnvironmentObject var navigator: Navigator
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: ProductsViewModel
 //    @State var path = NavigationPath()
     
        
@@ -84,5 +84,5 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView().environmentObject(MainViewModel())
+    CategoriesView().environmentObject(ProductsViewModel())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoreAppTabView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: ProductsViewModel
     
     // MARK: - Body
     var body: some View {
@@ -31,5 +31,5 @@ struct StoreAppTabView: View {
 }
 
 #Preview {
-    StoreAppTabView().environmentObject(MainViewModel())
+    StoreAppTabView().environmentObject(ProductsViewModel())
 }

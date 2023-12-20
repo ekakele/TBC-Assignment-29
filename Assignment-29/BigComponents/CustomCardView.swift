@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomCardView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: ProductsViewModel
     @EnvironmentObject var navigator: Navigator
     
     var image: String

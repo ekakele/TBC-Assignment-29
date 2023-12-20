@@ -11,7 +11,7 @@ import SwiftUI
 struct Assignment_29App: App {
     // MARK: - Properties
     @ObservedObject var navigator = Navigator()
-    @State var viewModel = MainViewModel()
+    @State var viewModel = ProductsViewModel()
     
     // MARK: - Body
     var body: some Scene {

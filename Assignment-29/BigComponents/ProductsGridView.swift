@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductsGridView: View {
     // MARK: - Properties
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var viewModel: ProductsViewModel
     @EnvironmentObject var navigator: Navigator
     
     var columns = [
@@ -54,5 +54,5 @@ struct ProductsGridView: View {
 }
 
 #Preview {
-    ProductsGridView().environmentObject(MainViewModel())
+    ProductsGridView().environmentObject(ProductsViewModel())
 }
