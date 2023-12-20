@@ -122,6 +122,7 @@
 				B5F9B5872B30F67B00E6EA2A /* TabView */,
 				B5F9B5842B30F29000E6EA2A /* MainScreen */,
 				B5F9B5862B30F2A800E6EA2A /* CategoriesScreen */,
+				B5F9B58A2B30FDF100E6EA2A /* ProductsView */,
 				B5F9B5852B30F29D00E6EA2A /* DetailsScreen */,
 			);
 			path = Screens;
@@ -180,7 +181,6 @@
 			children = (
 				B5F9B57B2B30B52900E6EA2A /* ProductDetailsView.swift */,
 				B5F9B57F2B30B81600E6EA2A /* ProductDetailViewModel.swift */,
-				B5F9B58A2B30FDF100E6EA2A /* ProductsView */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
