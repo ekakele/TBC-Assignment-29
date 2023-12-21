@@ -40,7 +40,7 @@ struct ProductsView: View {
                     .foregroundColor(.orange)
                     .offset(x: 10, y: -10)
                     .overlay(
-                        Text("\(viewModel.cartItems.count)")
+                        Text("\(viewModel.totalQuantityInCart)")
                             .font(.system(size: 15))
                             .bold()
                             .foregroundColor(.white)

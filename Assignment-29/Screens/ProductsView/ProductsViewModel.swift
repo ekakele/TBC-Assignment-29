@@ -26,6 +26,10 @@ final class ProductsViewModel: ObservableObject {
     @Published var showAlert = false
     @Published var status: checkoutStatus = .emptyCart
     
+    var totalQuantityInCart: Int {
+        cartItems.reduce(0) { $0 + $1.quantity }
+    }
+    
     var alertTitle: String {
         switch status {
         case .success:
@@ -72,15 +76,6 @@ final class ProductsViewModel: ObservableObject {
         }
     }
     
-    func addToCart(product: Product) {
-        if let index = cartItems.firstIndex(where: { $0.product == product }) {
-            cartItems[index].quantity += 1
-        } else {
-            let newCartItem = CartItem(product: product, quantity: 1)
-            cartItems.append(newCartItem)
-        }
-    }
-    
     func checkout(completion: @escaping (checkoutStatus) -> Void) {
         let totalPrice = self.totalPrice
         
@@ -92,6 +87,15 @@ final class ProductsViewModel: ObservableObject {
             completion(.success)
         } else {
             completion(.failure)
+        }
+    }
+    
+    func addToCart(product: Product) {
+        if let index = cartItems.firstIndex(where: { $0.product == product }) {
+            cartItems[index].quantity += 1
+        } else {
+            let newCartItem = CartItem(product: product, quantity: 1)
+            cartItems.append(newCartItem)
         }
     }
     
