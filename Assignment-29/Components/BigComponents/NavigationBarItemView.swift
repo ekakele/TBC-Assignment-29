@@ -12,14 +12,8 @@ struct NavigationBarItemView: View {
     var systemImageName: String
     var scaleEffect: CGFloat = 1.3
     
-    
     // MARK: - Body
     var body: some View {
-        ImageView
-    }
-    
-    // MARK: - Components
-    var ImageView: some View {
         Image(systemName: systemImageName)
             .resizable()
             .scaleEffect(scaleEffect)

@@ -56,7 +56,7 @@ struct ImageCarouselView: View {
                     .scaledToFit()
                     .frame(width: .infinity, height: 400)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
-                    
+                
                 
             }, placeholder: {
                 ProgressView()

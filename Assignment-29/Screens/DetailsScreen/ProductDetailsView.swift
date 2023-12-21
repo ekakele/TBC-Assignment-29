@@ -36,7 +36,7 @@ struct ProductDetailsView: View {
         }
     }
     
-    var LabelsStackView: some View {
+    private var LabelsStackView: some View {
         ZStack {
             VStack() {
                 HStack {
@@ -58,7 +58,7 @@ struct ProductDetailsView: View {
         .padding(.trailing, 8)
     }
     
-    var descriptionStackView: some View {
+    private var descriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView
                 .padding(.vertical, 5)
@@ -71,14 +71,14 @@ struct ProductDetailsView: View {
         }
     }
     
-    var titleSubtitleView: some View {
+    private var titleSubtitleView: some View {
         TitleSubtitleStackView(
             title: title,
             subTitle: brand
         )
     }
     
-    var priceView: some View {
+    private var priceView: some View {
         PriceView(price: price)
     }
     

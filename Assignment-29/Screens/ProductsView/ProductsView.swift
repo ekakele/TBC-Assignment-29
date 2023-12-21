@@ -49,7 +49,7 @@ struct ProductsView: View {
             )
     }
     
-    var filteredProducts: [Product] {
+    private var filteredProducts: [Product] {
             if let category = category {
                 return viewModel.filterByCategory(category: category)
             } else {

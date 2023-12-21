@@ -33,7 +33,6 @@ struct CustomCardView: View {
                     viewModel.addToCart(product: product)
                 }
             }
-            
         }
         .frame(width: 150, height: 200)
         .padding(.all, 12)
@@ -45,7 +44,7 @@ struct CustomCardView: View {
     }
     
     // MARK: - Components
-    var LabelsStackView: some View {
+    private var LabelsStackView: some View {
         ZStack {
             VStack() {
                 HStack {
@@ -68,7 +67,7 @@ struct CustomCardView: View {
         .padding(.trailing, 8)
     }
     
-    var itemImageView: some View {
+    private var itemImageView: some View {
         fetchImage()
     }
     
@@ -89,21 +88,21 @@ struct CustomCardView: View {
             })
     }
     
-    var shortDescriptionStackView: some View {
+    private var shortDescriptionStackView: some View {
         VStack(alignment: .leading) {
             titleSubtitleView
             priceView
         }
     }
     
-    var titleSubtitleView: some View {
+    private var titleSubtitleView: some View {
         TitleSubtitleStackView(
             title: title,
             subTitle: brand
         )
     }
     
-    var priceView: some View {
+    private var priceView: some View {
         PriceView(price: price)
     }
     

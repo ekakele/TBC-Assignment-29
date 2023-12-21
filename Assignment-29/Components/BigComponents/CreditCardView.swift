@@ -25,7 +25,7 @@ struct CreditCardView: View {
     }
     
     // MARK: - Components
-    var RoundedRectangleView: some View {
+    private var RoundedRectangleView: some View {
         RoundedRectangle(cornerRadius: 20)
             .fill(Color(red: 0.99, green: 0.95, blue: 0.94))
             .frame(width: .infinity, height: 200)
@@ -33,7 +33,7 @@ struct CreditCardView: View {
             .shadow(radius: 10)
     }
     
-    var ImageBalanceView: some View {
+    private var ImageBalanceView: some View {
         ImageView
             .overlay(
                 alignment: .leading) {
@@ -45,7 +45,7 @@ struct CreditCardView: View {
                 }
     }
     
-    var ImageView: some View {
+    private var ImageView: some View {
         Image("creditCard")
             .resizable()
             .frame(width: 300, height: 150)
@@ -54,7 +54,7 @@ struct CreditCardView: View {
             .shadow(radius: 10)
     }
     
-    var TextView: some View {
+    private var TextView: some View {
         Text("Total: \(totalPrice)")
             .foregroundColor(Color(red: 0.86, green: 0.19, blue: 0.13))
             .padding(.horizontal, 30)
