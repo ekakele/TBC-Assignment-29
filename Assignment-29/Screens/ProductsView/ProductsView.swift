@@ -11,9 +11,9 @@ struct ProductsView: View {
     // MARK: - Properties
     @EnvironmentObject private var navigator: Navigator
     @EnvironmentObject var viewModel: ProductsViewModel
-    @State var paymentInProgress = false    
+    @State var paymentInProgress = false
     var category: String?
-
+    
     // MARK: - Body
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -50,19 +50,19 @@ struct ProductsView: View {
     }
     
     private var filteredProducts: [Product] {
-            if let category = category {
-                return viewModel.filterByCategory(category: category)
-            } else {
-                return viewModel.products
-            }
+        if let category = category {
+            return viewModel.filterByCategory(category: category)
+        } else {
+            return viewModel.products
         }
+    }
     
     private var BalanceBarItemView: some View {
         NavigationBarItemView(systemImageName: "line.3.horizontal")
     }
     
     private var checkoutButton: some View {
-        Button {
+        Button(action: {
             viewModel.checkout { status in
                 viewModel.status = status
                 paymentInProgress.toggle()
@@ -72,9 +72,8 @@ struct ProductsView: View {
                     paymentInProgress.toggle()
                 }
             }
-        } label: {
+        }, label: {
             if paymentInProgress == true {
-                
                 Button {
                 } label: {
                     ProgressView("Payment in progress")
@@ -95,7 +94,7 @@ struct ProductsView: View {
                     .cornerRadius(10)
                     .padding(.vertical, 5)
             }
-        }
+        })
         .alert(isPresented: $viewModel.showAlert, content: {
             Alert(
                 title: Text(viewModel.alertTitle),
