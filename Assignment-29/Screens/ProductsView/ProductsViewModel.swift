@@ -79,14 +79,16 @@ final class ProductsViewModel: ObservableObject {
     func checkout(completion: @escaping (checkoutStatus) -> Void) {
         let totalPrice = self.totalPrice
         
-        if cartItems.isEmpty {
-            completion(.emptyCart)
-        } else if creditCardBalance >= totalPrice {
-            creditCardBalance -= totalPrice
-            cartItems.removeAll()
-            completion(.success)
-        } else {
-            completion(.failure)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            if self.cartItems.isEmpty {
+                completion(.emptyCart)
+            } else if self.creditCardBalance >= totalPrice {
+                self.creditCardBalance -= totalPrice
+                self.cartItems.removeAll()
+                completion(.success)
+            } else {
+                completion(.failure)
+            }
         }
     }
     

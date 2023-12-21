@@ -63,14 +63,13 @@ struct ProductsView: View {
     
     private var checkoutButton: some View {
         Button(action: {
+            paymentInProgress.toggle()
+            
             viewModel.checkout { status in
                 viewModel.status = status
-                paymentInProgress.toggle()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    viewModel.showAlert.toggle()
-                    paymentInProgress.toggle()
-                }
+                viewModel.showAlert.toggle()
+                paymentInProgress.toggle()
             }
         }, label: {
             if paymentInProgress == true {
